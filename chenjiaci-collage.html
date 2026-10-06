@@ -1,0 +1,883 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>陈家祠 · 岭南建筑艺术的明珠 | 杂志拼贴</title>
+<meta name="description" content="以杂志拼贴的方式走近广州陈家祠（陈氏书院）：七绝装饰谱、三进三路格局、图录与参观信息。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&display=swap" rel="stylesheet">
+<noscript><style>.rv{opacity:1 !important;transform:none !important}.rv-clip{clip-path:none !important}.craft-row{pointer-events:auto}</style></noscript>
+<style>
+/* ============================================================
+   陈家祠 · 杂志拼贴
+   方向：Editorial — Monocle / FT 杂志（纸 + 墨 + 一枚朱红）
+   ============================================================ */
+:root{
+  --bg:      oklch(98% 0.004 95);
+  --surface: oklch(100% 0.002 95);
+  --fg:      oklch(20% 0.018 70);
+  --muted:   oklch(48% 0.012 70);
+  --border:  oklch(90% 0.006 95);
+  --accent:  oklch(52% 0.10 28);
+
+  --ink-soft:   oklch(34% 0.017 72);
+  --paper-deep: oklch(94.5% 0.006 95);
+  --rule:       oklch(84% 0.008 95);
+  --accent-deep:oklch(43% 0.105 28);
+  --tape:       oklch(95.5% 0.012 95 / .74);
+
+  --font-display: 'Noto Serif SC','Songti SC','STSong','SimSun',Georgia,serif;
+  --font-latin:   'Iowan Old Style','Charter',Georgia,'Times New Roman',serif;
+  --font-body:    'Noto Sans SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',system-ui,sans-serif;
+  --font-mono:    'SFMono-Regular','Cascadia Mono','JetBrains Mono',Consolas,'Courier New',monospace;
+
+  --gut: clamp(1.25rem, 4vw, 4.5rem);
+  --pad-y: clamp(4.5rem, 11vh, 9rem);
+  --maxw: 1320px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--fg);
+  font-family:var(--font-body);
+  font-size:clamp(1rem,.55vw + .88rem,1.0625rem);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+::selection{background:var(--accent);color:var(--surface)}
+
+h1,h2,h3,h4,p,figure,blockquote,ul,ol{margin:0}
+h1,h2,h3{font-family:var(--font-display);font-weight:600;line-height:1.34;letter-spacing:0;text-wrap:balance}
+p{text-wrap:pretty}
+
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut)}
+.mono{
+  font-family:var(--font-mono);
+  font-size:.72rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.latin{font-family:var(--font-latin)}
+.rule{height:1px;background:var(--rule);border:0;margin:0}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:1px}
+
+/* ---------- 顶部进度 / 导航 ---------- */
+#progress{
+  position:fixed;inset-inline:0;top:0;height:2px;z-index:60;
+  background:var(--accent);transform-origin:0 50%;transform:scaleX(0);
+}
+.topbar{
+  position:fixed;inset-inline:0;top:0;z-index:50;
+  display:flex;align-items:center;gap:1.5rem;
+  padding:.85rem var(--gut);
+  border-bottom:1px solid transparent;
+  transition:background .35s ease,border-color .35s ease,backdrop-filter .35s ease;
+}
+.topbar.is-stuck{
+  background:oklch(98% .004 95 / .88);
+  backdrop-filter:blur(10px) saturate(1.2);
+  border-bottom-color:var(--border);
+}
+.wordmark{
+  display:flex;align-items:baseline;gap:.6rem;
+  font-family:var(--font-display);font-weight:900;font-size:1.18rem;letter-spacing:.02em;
+  margin-inline-end:auto;
+}
+.wordmark .seal-sm{
+  display:inline-grid;place-items:center;
+  width:1.55rem;height:1.55rem;background:var(--accent);color:var(--surface);
+  font-size:.62rem;font-weight:600;letter-spacing:0;line-height:1;align-self:center;
+  transform:rotate(-3deg);
+}
+.wordmark small{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.16em;color:var(--muted);font-weight:400}
+.nav{display:flex;gap:1.6rem}
+.nav a{
+  font-size:.82rem;letter-spacing:.05em;color:var(--muted);
+  padding-block:.35rem;border-bottom:1px solid transparent;
+  transition:color .25s ease,border-color .25s ease;
+}
+.nav a:hover{color:var(--fg);border-bottom-color:var(--fg)}
+.nav a[aria-current="true"]{color:var(--fg);border-bottom-color:var(--accent)}
+.topbar-cta{
+  font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+  border:1px solid var(--fg);padding:.5rem .85rem;
+  transition:background .25s ease,color .25s ease;
+}
+.topbar-cta:hover{background:var(--fg);color:var(--bg)}
+@media (max-width:860px){ .nav{display:none} }
+
+/* ---------- 通用排版件 ---------- */
+.eyebrow{
+  display:flex;align-items:center;gap:.85rem;
+  font-family:var(--font-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+}
+.eyebrow .en{color:var(--accent-deep);font-weight:600}
+.eyebrow .dash{flex:0 0 clamp(1.5rem,5vw,3.5rem);height:1px;background:var(--rule)}
+.h2{font-size:clamp(1.9rem,4.2vw,3.15rem);line-height:1.3}
+.lead{
+  font-family:var(--font-display);
+  font-size:clamp(1.08rem,1.55vw,1.34rem);
+  line-height:1.7;color:var(--ink-soft);max-width:44ch;
+}
+.body-col{max-width:62ch}
+.body-col p + p{margin-top:1.1em}
+.body-col p{color:var(--ink-soft)}
+.dropcap::first-letter{
+  float:inline-start;
+  font-family:var(--font-display);font-weight:900;
+  font-size:3.5em;line-height:.82;
+  margin:.06em .12em 0 0;color:var(--fg);
+}
+
+/* 章节头 */
+.section{padding-block:var(--pad-y);position:relative}
+.section-head{display:grid;gap:1.1rem;grid-template-columns:minmax(0,1fr);margin-bottom:clamp(2rem,5vw,3.5rem)}
+@media (min-width:900px){
+  .section-head{grid-template-columns:7rem minmax(0,1fr);align-items:start}
+  .section-head .eyebrow{flex-direction:column;align-items:flex-start;gap:.4rem}
+  .section-head .eyebrow .dash{width:3.5rem}
+}
+
+/* 动效基元 */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.rv-clip{clip-path:inset(0 0 100% 0);transition:clip-path 1s cubic-bezier(.2,.75,.2,1)}
+.rv-clip.in{clip-path:inset(0 0 0 0)}
+[data-parallax]{will-change:transform}
+
+/* ---------- 封面 ---------- */
+.hero{position:relative;padding-top:clamp(6.5rem,12vh,9.5rem);padding-bottom:clamp(3rem,7vh,5rem);overflow:hidden}
+.hero-grid{display:grid;gap:clamp(2rem,5vw,3.5rem);grid-template-columns:minmax(0,1fr)}
+@media (min-width:1000px){
+  .hero-grid{grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);align-items:center;gap:2rem}
+}
+.hero-copy{max-width:36rem;position:relative;z-index:3}
+.hero-title{
+  font-size:clamp(3.6rem,13.5vw,9.5rem);
+  font-weight:900;line-height:1.3;letter-spacing:0;
+  margin:.35em 0 .2em;
+}
+.hero-title .zh{display:block}
+.hero-title .latin{
+  display:block;font-style:italic;font-weight:400;
+  font-size:clamp(.8rem,2.6vw,2rem);letter-spacing:-.01em;line-height:1.3;color:var(--muted);
+  margin-top:.5em;
+}
+.hero-deck{font-family:var(--font-display);font-size:clamp(1.2rem,2.3vw,1.7rem);line-height:1.6;color:var(--fg);max-width:24ch}
+.hero-deck em{font-style:normal;border-bottom:2px solid var(--accent);padding-bottom:.05em}
+.meta-strip{
+  display:flex;flex-wrap:wrap;gap:.5rem 1rem;align-items:center;
+  margin-top:clamp(1.6rem,4vw,2.6rem);padding-top:1rem;border-top:1px solid var(--rule);
+}
+.meta-strip span{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.meta-strip i{width:4px;height:4px;background:var(--accent);font-style:normal}
+
+.scroll-cue{display:flex;align-items:center;gap:.7rem;margin-top:clamp(1.8rem,5vw,3rem)}
+.scroll-cue .bar{width:52px;height:1px;background:var(--fg);position:relative;overflow:hidden}
+.scroll-cue .bar::after{content:"";position:absolute;inset:0;background:var(--accent);transform-origin:0 50%;animation:cue 2.4s ease-in-out infinite}
+@keyframes cue{0%{transform:scaleX(0)}45%{transform:scaleX(1)}100%{transform:translateX(100%) scaleX(0)}}
+
+/* 拼贴堆 */
+.hero-stack{position:relative;height:clamp(420px,64vh,660px);z-index:2}
+.hs{position:absolute;background:var(--surface);padding:9px 9px 10px;border:1px solid var(--border);
+    box-shadow:0 1px 0 oklch(60% .02 70 / .12),0 26px 40px -30px oklch(30% .02 60 / .55)}
+.hs img{width:100%;height:100%;object-fit:cover}
+.hs figcaption{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:6px}
+.hs-a{top:0;left:0;width:60%;rotate:-3.2deg;z-index:2;--py:26}
+.hs-a .ph{aspect-ratio:3/2}
+.hs-b{top:30%;right:0;width:52%;rotate:2.6deg;z-index:3;--py:-34}
+.hs-b .ph{aspect-ratio:4/3}
+.hs-c{bottom:0;left:4%;width:46%;rotate:-1.8deg;z-index:1;--py:18}
+.hs-c .ph{aspect-ratio:3/2}
+.hs-d{top:6%;right:8%;width:28%;rotate:6deg;z-index:4;--py:-18}
+.hs-d .ph{aspect-ratio:4/3}
+.hs-d figcaption{display:none}
+.tape{position:relative}
+.tape::after{
+  content:"";position:absolute;top:-13px;left:50%;translate:-50% 0;
+  width:78px;height:26px;rotate:-4.5deg;
+  background:var(--tape);border:1px solid oklch(86% .012 95 / .7);
+  box-shadow:0 1px 2px oklch(40% .02 70 / .08);
+}
+@media (max-width:999px){
+  .hero-stack{height:auto;display:grid;grid-template-columns:1fr 1fr;gap:.8rem;position:static}
+  .hs{position:static;width:auto;rotate:0;--py:0}
+  .hs figcaption{display:none}
+  .tape::after{display:none}
+}
+
+.seal{
+  position:absolute;z-index:5;
+  display:grid;place-content:center;text-align:center;
+  width:84px;height:84px;background:var(--accent-deep);color:var(--surface);
+  font-family:var(--font-display);font-weight:900;font-size:1.32rem;line-height:1.05;
+  letter-spacing:.08em;rotate:-6deg;
+  box-shadow:0 14px 24px -16px oklch(30% .06 28 / .8);
+}
+.seal span{display:block;font-size:.56rem;font-weight:600;letter-spacing:.14em;margin-top:.3em;opacity:.92}
+.hero .wrap{position:relative}
+.hero .seal{top:0;right:0}
+@media (max-width:999px){ .hero .seal{position:static;rotate:-4deg;margin-top:1.5rem} }
+
+/* ---------- 名与实 ---------- */
+.story-grid{display:grid;gap:clamp(2rem,5vw,3rem);grid-template-columns:minmax(0,1fr)}
+@media (min-width:920px){ .story-grid{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-items:start} }
+.factrow{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--fg);border-bottom:1px solid var(--rule)}
+.factrow div{padding:1.1rem .2rem 1.3rem;border-bottom:1px solid var(--rule)}
+.factrow div:nth-child(2n){border-inline-start:1px solid var(--rule);padding-inline-start:1.1rem}
+.factrow b{display:block;font-family:var(--font-display);font-weight:900;font-size:clamp(1.9rem,4vw,2.6rem);line-height:1;letter-spacing:-.01em}
+.factrow span{display:block;margin-top:.5rem}
+.fact-card{
+  background:var(--surface);border:1px solid var(--border);padding:1.1rem 1.1rem 1.25rem;
+  rotate:1.4deg;box-shadow:0 20px 34px -30px oklch(30% .02 60 / .6);
+}
+.fact-card img{aspect-ratio:4/3;object-fit:cover;margin-bottom:.85rem}
+.fact-card figcaption{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);line-height:1.6}
+
+.pullquote{margin:clamp(3rem,7vw,5rem) 0;display:grid;gap:1rem}
+@media (min-width:920px){
+  .pullquote{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:end;column-gap:3rem}
+  .pullquote .q{grid-column:1 / -1}
+}
+.pullquote .q{
+  font-family:var(--font-display);font-weight:400;
+  font-size:clamp(1.6rem,3.6vw,2.7rem);line-height:1.45;letter-spacing:0;
+  border-top:1px solid var(--fg);padding-top:clamp(1.2rem,3vw,2rem);
+}
+.pullquote .q b{font-weight:900}
+.pullquote .attr{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.pullquote .gloss{color:var(--ink-soft);max-width:46ch;font-size:.98rem}
+
+/* ---------- 七绝 ---------- */
+.craft-index{border-top:1px solid var(--fg);list-style:none;padding:0;margin:0}
+.craft-row{
+  display:grid;grid-template-columns:3.2rem minmax(0,.62fr) minmax(0,1.38fr);
+  gap:1rem 1.4rem;align-items:start;
+  width:100%;text-align:start;
+  padding:clamp(1.2rem,3vw,1.9rem) .4rem;
+  border-bottom:1px solid var(--rule);
+  transition:background .3s ease,padding-inline .3s ease;
+}
+.craft-row:hover{background:var(--paper-deep)}
+.craft-row .num{font-family:var(--font-mono);font-size:.82rem;letter-spacing:.06em;color:var(--muted);padding-top:.5rem;transition:color .3s ease}
+.craft-row:hover .num{color:var(--accent-deep)}
+.craft-row .name{font-family:var(--font-display);font-weight:900;font-size:clamp(1.35rem,2.7vw,2rem);line-height:1.2}
+.craft-row .name em{display:block;font-family:var(--font-mono);font-style:normal;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-top:.45rem}
+.craft-row .desc{color:var(--ink-soft);font-size:.98rem;max-width:58ch}
+.craft-row .desc b{font-weight:600;color:var(--fg)}
+@media (max-width:720px){
+  .craft-row{grid-template-columns:2.4rem minmax(0,1fr)}
+  .craft-row .desc{grid-column:2}
+}
+
+/* ---------- 格局 ---------- */
+.plan{display:grid;gap:clamp(2rem,5vw,3.4rem);grid-template-columns:minmax(0,1fr)}
+@media (min-width:960px){ .plan{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center} }
+.plan-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:2rem}
+.plan-stats div{background:var(--bg);padding:1.1rem 1rem 1.25rem}
+.plan-stats b{display:block;font-family:var(--font-display);font-weight:900;font-size:clamp(1.7rem,3.4vw,2.4rem);line-height:1;letter-spacing:-.01em}
+.plan-stats b i{font-family:var(--font-mono);font-style:normal;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-inline-start:.35em}
+.plan-stats span{display:block;margin-top:.55rem;font-size:.86rem;color:var(--muted)}
+.plan-collage{display:grid;grid-template-columns:1.35fr 1fr;gap:.9rem;align-items:end}
+.plan-collage figure{background:var(--surface);padding:8px;border:1px solid var(--border);box-shadow:0 22px 36px -32px oklch(30% .02 60 / .6)}
+.plan-collage figure:first-child{rotate:-1.2deg}
+.plan-collage figure:last-child{rotate:1.6deg;translate:0 -1.4rem}
+.plan-collage img{width:100%;object-fit:cover}
+.plan-collage figcaption{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:7px}
+@media (max-width:640px){ .plan-collage{grid-template-columns:1fr} .plan-collage figure:last-child{translate:0} }
+
+/* ---------- 图录 ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.6rem}
+.filters button{
+  font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+  border:1px solid var(--rule);padding:.5rem .85rem;color:var(--muted);
+  transition:background .25s ease,color .25s ease,border-color .25s ease;
+}
+.filters button:hover{border-color:var(--fg);color:var(--fg)}
+.filters button[aria-pressed="true"]{background:var(--fg);border-color:var(--fg);color:var(--bg)}
+.gallery{columns:3;column-gap:.9rem}
+@media (max-width:980px){ .gallery{columns:2} }
+@media (max-width:600px){ .gallery{columns:1} }
+.g-item{
+  display:block;width:100%;break-inside:avoid;margin:0 0 .9rem;
+  background:var(--surface);border:1px solid var(--border);padding:8px;
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s ease,opacity .4s ease;
+}
+.g-item:hover{transform:translateY(-4px);box-shadow:0 26px 40px -32px oklch(30% .02 60 / .7)}
+.g-item.is-hidden{display:none}
+.g-item img{width:100%;object-fit:cover}
+.g-item figcaption{display:flex;justify-content:space-between;gap:.8rem;align-items:baseline;padding-top:8px}
+.g-item figcaption b{font-family:var(--font-display);font-weight:600;font-size:.92rem}
+.g-item figcaption span{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);text-align:end}
+.g-item .ph{display:block;overflow:hidden}
+.g-item[data-ar="43"] .ph{aspect-ratio:4/3}
+.g-item[data-ar="32"] .ph{aspect-ratio:3/2}
+.g-item[data-ar="1610"] .ph{aspect-ratio:16/10}
+.g-item[data-ar="golden"] .ph{aspect-ratio:1.678}
+.g-item[data-ar="tall"] .ph{aspect-ratio:2/3}
+.g-item img{height:100%}
+
+/* ---------- 今日 ---------- */
+.today{display:grid;gap:clamp(2rem,5vw,3.4rem);grid-template-columns:minmax(0,1fr)}
+@media (min-width:960px){ .today{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:center} }
+.plate{
+  background:var(--surface);border:1px solid var(--border);padding:10px;
+  rotate:-1deg;box-shadow:0 30px 46px -38px oklch(30% .02 60 / .7);
+}
+.plate img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.plate figcaption{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:8px;display:flex;justify-content:space-between;gap:1rem}
+.stat-list{display:grid;gap:1px;background:var(--rule);border-block:1px solid var(--rule);margin-top:2rem}
+.stat-list div{background:var(--bg);display:flex;align-items:baseline;gap:1rem;justify-content:space-between;padding:.95rem .2rem}
+.stat-list b{font-family:var(--font-display);font-weight:900;font-size:clamp(1.2rem,2.3vw,1.6rem);line-height:1.1}
+.stat-list span{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);text-align:end}
+
+/* ---------- 参观 ---------- */
+.visit{background:var(--fg);color:var(--bg)}
+.visit .eyebrow,.visit .mono{color:oklch(72% .012 80)}
+.visit .eyebrow .en{color:oklch(72% .11 30)}
+.visit .eyebrow .dash{background:oklch(45% .01 80)}
+.visit-grid{display:grid;gap:clamp(2rem,5vw,3.4rem);grid-template-columns:minmax(0,1fr)}
+@media (min-width:900px){ .visit-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:start} }
+.visit-title{font-family:var(--font-display);font-weight:900;font-size:clamp(2rem,4.6vw,3.4rem);line-height:1.28}
+.info-table{border-top:1px solid oklch(45% .01 80)}
+.info-table div{display:grid;grid-template-columns:minmax(0,7rem) minmax(0,1fr);gap:1rem;padding:1.05rem .2rem;border-bottom:1px solid oklch(45% .01 80)}
+.info-table dt{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:oklch(72% .012 80);padding-top:.28rem}
+.info-table dd{margin:0;font-size:1rem;line-height:1.7}
+.info-note{margin-top:1.4rem;font-size:.86rem;line-height:1.7;color:oklch(78% .01 80);max-width:52ch}
+.visit-map{aspect-ratio:4/3;object-fit:cover;width:100%;border:1px solid oklch(45% .01 80);filter:saturate(.85) contrast(1.02)}
+
+/* ---------- 页脚 ---------- */
+.footer{padding-block:clamp(3rem,7vw,5rem) 2.5rem;border-top:1px solid var(--rule)}
+.footer-top{display:grid;gap:2rem;grid-template-columns:minmax(0,1fr)}
+@media (min-width:820px){ .footer-top{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)} }
+.footer-mark{font-family:var(--font-display);font-weight:900;font-size:clamp(2.4rem,7vw,4.2rem);line-height:1.15;letter-spacing:.02em}
+.footer-mark span{display:block;font-family:var(--font-mono);font-size:.66rem;letter-spacing:.16em;font-weight:400;color:var(--muted);margin-top:1rem}
+.credits{font-size:.78rem;line-height:1.9;color:var(--muted);max-width:62ch}
+.credits h3{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--fg);font-weight:600;margin-bottom:.7rem}
+.credits ul{list-style:none;padding:0;display:grid;gap:.3rem}
+.credits li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.8rem;border-bottom:1px dotted var(--rule);padding-bottom:.3rem}
+.credits li em{font-style:normal;color:var(--fg)}
+.footer-bar{margin-top:2.6rem;padding-top:1.1rem;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;justify-content:space-between}
+
+/* ---------- 灯箱 ---------- */
+.lightbox{
+  position:fixed;inset:0;z-index:80;display:grid;place-items:center;
+  padding:clamp(1rem,4vw,3rem);
+  background:oklch(16% .015 70 / .92);backdrop-filter:blur(6px);
+  opacity:0;visibility:hidden;transition:opacity .35s ease,visibility .35s ease;
+}
+.lightbox.is-open{opacity:1;visibility:visible}
+.lightbox[hidden]{display:none}
+.lightbox figure{margin:0;max-width:min(1100px,94vw);display:grid;gap:1rem;justify-items:center}
+.lightbox img{max-height:74vh;width:auto;object-fit:contain;background:var(--surface);padding:8px;border:1px solid oklch(60% .01 80 / .4)}
+.lightbox figcaption{color:oklch(88% .008 80);font-size:.9rem;text-align:center;max-width:70ch}
+.lightbox .lb-credit{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.09em;text-transform:uppercase;color:oklch(68% .01 80);margin-top:.35rem}
+.lb-close{
+  position:absolute;top:clamp(1rem,3vw,2rem);inset-inline-end:clamp(1rem,3vw,2rem);
+  font-family:var(--font-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;
+  color:oklch(88% .008 80);border:1px solid oklch(55% .01 80);padding:.55rem .9rem;
+  transition:background .25s ease,color .25s ease,border-color .25s ease;
+}
+.lb-close:hover{background:var(--bg);color:var(--fg);border-color:var(--bg)}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv,.rv-clip{opacity:1 !important;transform:none !important;clip-path:none !important;transition:none !important}
+  [data-parallax]{transform:none !important}
+  .scroll-cue .bar::after{animation:none}
+}
+</style>
+</head>
+<body id="top">
+<div id="progress" aria-hidden="true"></div>
+
+<header class="topbar" data-od-id="site-header">
+  <a class="wordmark" href="#top" aria-label="回到顶部">
+    <span class="seal-sm" aria-hidden="true">陈</span>
+    陈家祠 <small>陈氏书院 · 1888</small>
+  </a>
+  <nav class="nav" aria-label="页面导航">
+    <a href="#story">名与实</a>
+    <a href="#crafts">七绝</a>
+    <a href="#plan">格局</a>
+    <a href="#gallery">图录</a>
+    <a href="#today">今日</a>
+  </nav>
+  <a class="topbar-cta" href="#visit">参观信息</a>
+</header>
+
+<main>
+  <!-- ================= 封面 ================= -->
+  <section class="hero" data-od-id="cover" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow rv">
+            <span class="en">No.01</span>
+            <span class="dash" aria-hidden="true"></span>
+            <span>广州 · 荔湾 · 中山七路</span>
+          </p>
+          <h1 class="hero-title" id="hero-title">
+            <span class="zh rv">陈家祠</span>
+            <span class="latin rv">Lingnan Architecture, Cut &amp; Collaged</span>
+          </h1>
+          <p class="hero-deck rv">一座祠堂，为什么挂着一块写着<em>「书院」</em>的匾额？</p>
+          <div class="meta-strip rv">
+            <span>清光绪十四年筹建</span><i aria-hidden="true"></i>
+            <span>一八九三年落成</span><i aria-hidden="true"></i>
+            <span>广东七十二县陈姓合建</span>
+          </div>
+          <div class="scroll-cue rv">
+            <span class="mono">向下滚动</span>
+            <span class="bar" aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <div class="hero-stack" aria-hidden="false">
+          <figure class="hs hs-a tape rv" data-parallax="0.06">
+            <div class="ph"><img src="assets/hero-facade.jpg" width="1280" height="853" alt="陈家祠正立面，青砖外墙与陶塑瓦脊" decoding="async"></div>
+            <figcaption>正立面 · 中山七路</figcaption>
+          </figure>
+          <figure class="hs hs-b tape rv" data-parallax="-0.09">
+            <div class="ph"><img src="assets/paifang.jpg" width="1920" height="1440" alt="陈家祠前的牌坊与庭院" loading="lazy" decoding="async"></div>
+            <figcaption>牌坊与前庭</figcaption>
+          </figure>
+          <figure class="hs hs-c rv" data-parallax="0.05">
+            <div class="ph"><img src="assets/lanterns.jpg" width="1920" height="1280" alt="廊庑下悬挂的红灯笼" loading="lazy" decoding="async"></div>
+            <figcaption>廊庑 · 灯笼</figcaption>
+          </figure>
+          <figure class="hs hs-d rv" data-parallax="-0.05">
+            <div class="ph"><img src="assets/wood-carving.jpg" width="1280" height="939" alt="陈家祠木雕构件" loading="lazy" decoding="async"></div>
+          </figure>
+        </div>
+      </div>
+      <div class="seal" aria-hidden="true">陈家祠<span>SEAL</span></div>
+    </div>
+  </section>
+
+  <div class="wrap"><hr class="rule"></div>
+
+  <!-- ================= 01 名与实 ================= -->
+  <section class="section" id="story" data-od-id="section-story" aria-labelledby="story-h">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow rv"><span class="en">01</span><span class="dash" aria-hidden="true"></span><span>名与实</span></p>
+        <div>
+          <h2 class="h2 rv" id="story-h">祠堂之实，书院之名</h2>
+          <p class="lead rv" style="margin-top:1.1rem">清光绪十四年（1888）筹建，十九年（1893）落成。它是一座合族祠堂，却题匾「陈氏书院」。</p>
+        </div>
+      </div>
+
+      <div class="story-grid">
+        <div class="body-col rv">
+          <p class="dropcap">清代中叶以后，官府屡以「把持讼事、挟众抗官」为由查禁合族祠。为求存续，各姓祠堂纷纷改称「书院」「试馆」「书室」。陈氏书院之名，正由这一段周旋而来。</p>
+          <p>名为书院，实则兼具祭祀与落脚之用。参与捐资的族人，可将祖先牌位供奉于神龛之中；各地陈氏子弟赴省城备考科举、候任、缴税、诉讼，亦可在此暂居。省城住宿昂贵，这一处落脚地，便是众人集资的理由。</p>
+          <p>于是，一座祠堂同时装下了两件事：对先祖的追念，与对后辈的托举。</p>
+        </div>
+
+        <div class="rv">
+          <figure class="fact-card" data-od-id="story-photo">
+            <img src="assets/wall-carving.jpg" width="1920" height="1440" alt="陈家祠墙面砖雕，层层叠叠的人物与山水" loading="lazy" decoding="async">
+            <figcaption>墙面砖雕 · 人物山水层叠，如嵌在墙上的水墨长卷</figcaption>
+          </figure>
+          <div class="factrow" data-od-id="story-facts" style="margin-top:1.4rem">
+            <div><b>1888</b><span class="mono">筹建</span></div>
+            <div><b>1893</b><span class="mono">落成</span></div>
+            <div><b>72</b><span class="mono">县陈姓捐资</span></div>
+            <div><b>2</b><span class="mono">祠 · 院双重身份</span></div>
+          </div>
+        </div>
+      </div>
+
+      <figure class="pullquote rv" data-od-id="story-quote">
+        <blockquote class="q">天工人可代，<b>人工天不如</b>。<br>果然造世界，胜读十年书。</blockquote>
+        <p class="attr">郭沫若 · 1959 年参观后留诗</p>
+        <p class="gloss">二十世纪二十年代起，陈家祠的装饰工艺已被德、日建筑专著专题介绍；1959 年辟为广东民间工艺馆，其后更名为广东民间工艺博物馆。</p>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================= 02 七绝 ================= -->
+  <section class="section" id="crafts" data-od-id="section-crafts" aria-labelledby="crafts-h" style="background:var(--paper-deep)">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow rv"><span class="en">02</span><span class="dash" aria-hidden="true"></span><span>装饰谱</span></p>
+        <div>
+          <h2 class="h2 rv" id="crafts-h">七绝</h2>
+          <p class="lead rv" style="margin-top:1.1rem">木雕、石雕、砖雕、陶塑、灰塑、铜铁铸、彩绘——七种工艺自檐下铺到屋脊，民间称「三雕两塑一铸一画」。</p>
+        </div>
+      </div>
+
+      <ol class="craft-index" data-od-id="craft-list">
+        <li class="craft-row rv">
+          <span class="num">01</span>
+          <span class="name">木雕<em>Wood</em></span>
+          <span class="desc">数量最多、规模最大。头门梁架雕「王母祝寿」「践土会盟」；<b>聚贤堂屏门</b>与后座十一座双层透雕神龛，最称精绝。</span>
+        </li>
+        <li class="craft-row rv">
+          <span class="num">02</span>
+          <span class="name">石雕<em>Stone</em></span>
+          <span class="desc">取材麻石，见于廊柱、月梁、券门、栏杆、柱础与台阶。聚贤堂前<b>月台石栏</b>，融圆雕、高浮雕、镂雕于一炉。</span>
+        </li>
+        <li class="craft-row rv">
+          <span class="num">03</span>
+          <span class="name">砖雕<em>Brick</em></span>
+          <span class="desc">以东、西倒座外墙最具规模。祠前<b>六幅大型砖雕</b>，每幅长约四米，青砖逐块雕成再拼合成幅，层次深达数寸。</span>
+        </li>
+        <li class="craft-row rv">
+          <span class="num">04</span>
+          <span class="name">陶塑<em>Ceramic</em></span>
+          <span class="desc">石湾陶脊。正脊共十一条；<b>聚贤堂一脊</b>长二十七米，连灰塑基座通高逾四米，塑人物二百二十四个。</span>
+        </li>
+        <li class="craft-row rv">
+          <span class="num">05</span>
+          <span class="name">灰塑<em>Lime</em></span>
+          <span class="desc">施于瓦脊基座、山墙垂脊、廊门屋顶。总长<b>一千八百余米</b>，多出南海艺人之手，题材与陶塑相近。</span>
+        </li>
+        <li class="craft-row rv">
+          <span class="num">06</span>
+          <span class="name">铜铁铸<em>Metal</em></span>
+          <span class="desc">铁铸通花栏板嵌入聚贤堂月台石栏，<b>灰白麻石与深色铁花</b>相映，层次分明，是别处少见的做法。</span>
+        </li>
+        <li class="craft-row rv">
+          <span class="num">07</span>
+          <span class="name">彩绘<em>Paint</em></span>
+          <span class="desc">门神、壁画与梁枋彩画。大门一对彩绘门神高约四米，为<b>广东现存最大</b>，守护祠堂百余年。</span>
+        </li>
+      </ol>
+      <p class="mono rv" style="margin-top:1.6rem">※ 数字与工艺说明整理自公开史料，参观时以现场展陈为准。</p>
+    </div>
+  </section>
+
+  <!-- ================= 03 格局 ================= -->
+  <section class="section" id="plan" data-od-id="section-plan" aria-labelledby="plan-h">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow rv"><span class="en">03</span><span class="dash" aria-hidden="true"></span><span>格局</span></p>
+        <div>
+          <h2 class="h2 rv" id="plan-h">三进三路，九堂六院</h2>
+        </div>
+      </div>
+
+      <div class="plan">
+        <div class="rv">
+          <p class="lead">坐北朝南，外封闭而内开放。全院由十九座单体建筑组成，长廊贯通，遮阳避雨——很合岭南湿热的气候。</p>
+          <div class="plan-stats" data-od-id="plan-stats">
+            <div><b>9<i>座</i></b><span>厅堂</span></div>
+            <div><b>6<i>个</i></b><span>院落</span></div>
+            <div><b>19<i>座</i></b><span>单体建筑</span></div>
+            <div><b>15,000<i>m²</i></b><span>占地面积</span></div>
+            <div><b>8,000<i>m²</i></b><span>建筑面积</span></div>
+          </div>
+          <p class="body-col rv" style="margin-top:1.6rem;color:var(--ink-soft)">中轴的<b style="color:var(--fg)">聚贤堂</b>是全院核心，当年春秋祭祀、族中议事都在这里。堂前白石露台，石栏嵌着铁花，是整座祠堂最要紧的一进。</p>
+        </div>
+
+        <div class="plan-collage rv" data-od-id="plan-photos">
+          <figure>
+            <img src="assets/courtyard.jpg" width="1920" height="1196" alt="陈家祠庭院与连廊" loading="lazy" decoding="async" style="aspect-ratio:1.605">
+            <figcaption>庭院 · 长廊贯通</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/hall-interior.jpg" width="1920" height="1144" alt="陈家祠厅堂内部梁架" loading="lazy" decoding="async" style="aspect-ratio:1.678">
+            <figcaption>厅堂 · 梁架</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 04 图录 ================= -->
+  <section class="section" id="gallery" data-od-id="section-gallery" aria-labelledby="gallery-h">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow rv"><span class="en">04</span><span class="dash" aria-hidden="true"></span><span>图录</span></p>
+        <div>
+          <h2 class="h2 rv" id="gallery-h">放大，细看</h2>
+          <p class="lead rv" style="margin-top:1.1rem">点击任意一张，看图注与出处。图片来自公开授权摄影，按门类筛选浏览。</p>
+        </div>
+      </div>
+
+      <div class="filters rv" data-od-id="gallery-filters" role="group" aria-label="图片筛选">
+        <button type="button" data-filter="all" aria-pressed="true">全部</button>
+        <button type="button" data-filter="outer" aria-pressed="false">外观</button>
+        <button type="button" data-filter="deco" aria-pressed="false">装饰</button>
+        <button type="button" data-filter="inner" aria-pressed="false">内景</button>
+      </div>
+
+      <div class="gallery" data-od-id="gallery-grid" id="gallery-grid"></div>
+    </div>
+  </section>
+
+  <!-- ================= 05 今日 ================= -->
+  <section class="section" id="today" data-od-id="section-today" aria-labelledby="today-h" style="background:var(--paper-deep)">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow rv"><span class="en">05</span><span class="dash" aria-hidden="true"></span><span>今日</span></p>
+        <div>
+          <h2 class="h2 rv" id="today-h">从祠堂，到博物馆</h2>
+        </div>
+      </div>
+
+      <div class="today">
+        <div class="rv">
+          <p class="lead">1959 年辟为广东民间工艺馆，1994 年更为今名。1988 年国务院公布其为全国重点文物保护单位；新世纪，又以「古祠流芳」入选羊城八景。</p>
+          <div class="stat-list" data-od-id="today-stats">
+            <div><b>国家一级博物馆</b><span>广东民间工艺博物馆</span></div>
+            <div><b>20,000+ 件</b><span>馆藏文物与工艺精品</span></div>
+            <div><b>近 3,000 件</b><span>国家级珍贵文物</span></div>
+            <div><b>11 条</b><span>正脊石湾陶塑</span></div>
+          </div>
+        </div>
+        <div class="rv">
+          <figure class="plate">
+            <img src="assets/museum-interior.jpg" width="1920" height="1440" alt="广东民间工艺博物馆展厅内景" loading="lazy" decoding="async">
+            <figcaption><span>广东民间工艺博物馆 · 展厅</span><span>Max Bates / CC BY-SA 4.0</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 06 参观 ================= -->
+  <section class="section visit" id="visit" data-od-id="section-visit" aria-labelledby="visit-h">
+    <div class="wrap">
+      <div class="visit-grid">
+        <div>
+          <p class="eyebrow rv"><span class="en">06</span><span class="dash" aria-hidden="true"></span><span>参观</span></p>
+          <h2 class="visit-title rv" id="visit-h" style="margin-top:1rem">去看一眼<br>那片瓦脊</h2>
+          <p class="info-note rv" style="margin-top:1.4rem">院东另辟有一万七千余平方米的绿化广场。建议留出一到两小时，从正门石狮与石鼓一路看到聚贤堂的月台。</p>
+        </div>
+
+        <div class="rv">
+          <dl class="info-table" data-od-id="visit-info">
+            <div><dt>地址</dt><dd>广州市荔湾区中山七路恩龙里 34 号</dd></div>
+            <div><dt>地铁</dt><dd>1 号线 / 8 号线「陈家祠」站</dd></div>
+            <div><dt>公交</dt><dd>17、88 路至「陈家祠」站；15、133 路至「荔湾路」站</dd></div>
+            <div><dt>开放</dt><dd>09:00 – 18:00（17:30 停止入馆）</dd></div>
+          </dl>
+          <p class="info-note">以上为参考信息，节假日与临时展览常有调整，出行前请以官方公布为准。</p>
+          <figure style="margin-top:1.6rem">
+            <img class="visit-map" src="assets/tablet.jpg" width="1920" height="1440" alt="陈氏书院匾额石刻" loading="lazy" decoding="async">
+            <figcaption class="mono" style="color:oklch(78% .01 80);margin-top:.6rem">「陈氏书院」匾额 · 正门</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= 页脚 ================= -->
+<footer class="footer" data-od-id="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="rv">
+        <p class="footer-mark">陈家祠<span>岭南建筑艺术的明珠 · 广州</span></p>
+      </div>
+      <div class="credits rv" data-od-id="image-credits">
+        <h3>图片来源 / Image Credits</h3>
+        <ul>
+          <li><span>正立面 <em>hero-facade</em> — Windmemories</span><span>CC BY-SA 4.0</span></li>
+          <li><span>陈氏书院正面 <em>academy-front</em> — Chinatravelsavvy</span><span>CC BY-SA 3.0</span></li>
+          <li><span>牌坊 <em>paifang</em> — 钉钉</span><span>CC BY-SA 4.0</span></li>
+          <li><span>墙面砖雕 <em>wall-carving</em> — Chinatravelsavvy</span><span>CC BY-SA 3.0</span></li>
+          <li><span>木雕 <em>wood-carving / wood-screen</em> — Zyng1</span><span>Public domain</span></li>
+          <li><span>廊庑灯笼 <em>lanterns</em> — VioletShi</span><span>CC BY-SA 4.0</span></li>
+          <li><span>额匾石刻 <em>tablet</em> — 钉钉</span><span>CC BY-SA 4.0</span></li>
+          <li><span>陶塑脊饰 <em>pottery-ridge</em> — Yumeto</span><span>CC BY-SA 4.0</span></li>
+          <li><span>展厅内景 <em>museum-interior</em> — Max Bates</span><span>CC BY-SA 4.0</span></li>
+          <li><span>厅堂 / 庭院 / 细节 <em>hall / courtyard / detail</em> — xiquinhosilva</span><span>CC BY 2.0</span></li>
+        </ul>
+        <p style="margin-top:1rem">全部图片来自 Wikimedia Commons，遵循各自授权协议，署名与许可如上。本页为设计示例，史料据公开资料整理。</p>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <span class="mono">陈家祠 · 陈氏书院</span>
+      <span class="mono">Magazine Collage · 2026</span>
+      <a class="mono" href="#top" style="color:var(--fg)">回到顶部 ↑</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= 灯箱 ================= -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="图片详情" hidden>
+  <button class="lb-close" type="button" id="lb-close">关闭 ESC</button>
+  <figure>
+    <img id="lb-img" src="" alt="">
+    <figcaption>
+      <span id="lb-cap"></span>
+      <span class="lb-credit" id="lb-credit"></span>
+    </figcaption>
+  </figure>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- 图录数据（真实图片 + 真实图注/出处） ---------- */
+  var ITEMS = [
+    {src:"assets/hero-facade.jpg", w:1280,h:853, ar:"32", cat:"outer", cap:"正立面 · 青砖外墙与陶塑瓦脊", cr:"Windmemories / CC BY-SA 4.0", alt:"陈家祠正立面，青砖外墙与陶塑瓦脊"},
+    {src:"assets/academy-front.jpg", w:1920,h:1440, ar:"43", cat:"outer", cap:"陈氏书院正面", cr:"Chinatravelsavvy / CC BY-SA 3.0", alt:"陈氏书院正面全貌"},
+    {src:"assets/paifang.jpg", w:1920,h:1440, ar:"43", cat:"outer", cap:"牌坊与前庭", cr:"钉钉 / CC BY-SA 4.0", alt:"陈家祠牌坊与前庭"},
+    {src:"assets/detail-tall.jpg", w:1920,h:2876, ar:"tall", cat:"deco", cap:"屋面脊饰细节", cr:"xiquinhosilva / CC BY 2.0", alt:"陈家祠屋面脊饰细节"},
+    {src:"assets/wall-carving.jpg", w:1920,h:1440, ar:"43", cat:"deco", cap:"墙面砖雕 · 人物山水", cr:"Chinatravelsavvy / CC BY-SA 3.0", alt:"陈家祠墙面砖雕人物山水"},
+    {src:"assets/wood-carving.jpg", w:1280,h:939, ar:"43", cat:"deco", cap:"木雕构件", cr:"Zyng1 / Public domain", alt:"陈家祠木雕构件"},
+    {src:"assets/wood-screen.jpg", w:1280,h:783, ar:"1610", cat:"deco", cap:"屏门木雕（局部）", cr:"Zyng1 / Public domain", alt:"陈家祠屏门木雕局部"},
+    {src:"assets/pottery-ridge.jpg", w:1920,h:1440, ar:"43", cat:"deco", cap:"石湾陶塑脊饰", cr:"Yumeto / CC BY-SA 4.0", alt:"陈家祠石湾陶塑脊饰"},
+    {src:"assets/lanterns.jpg", w:1920,h:1280, ar:"32", cat:"inner", cap:"廊庑 · 灯笼", cr:"VioletShi / CC BY-SA 4.0", alt:"陈家祠廊庑下悬挂的灯笼"},
+    {src:"assets/courtyard.jpg", w:1920,h:1196, ar:"1610", cat:"inner", cap:"庭院与连廊", cr:"xiquinhosilva / CC BY 2.0", alt:"陈家祠庭院与连廊"},
+    {src:"assets/hall-interior.jpg", w:1920,h:1144, ar:"golden", cat:"inner", cap:"厅堂梁架", cr:"xiquinhosilva / CC BY 2.0", alt:"陈家祠厅堂内部梁架"},
+    {src:"assets/museum-interior.jpg", w:1920,h:1440, ar:"43", cat:"inner", cap:"广东民间工艺博物馆展厅", cr:"Max Bates / CC BY-SA 4.0", alt:"广东民间工艺博物馆展厅内景"}
+  ];
+
+  var grid = document.getElementById("gallery-grid");
+  var frag = document.createDocumentFragment();
+  ITEMS.forEach(function(it, i){
+    var fig = document.createElement("figure");
+    fig.className = "g-item";
+    fig.setAttribute("data-cat", it.cat);
+    fig.setAttribute("data-ar", it.ar);
+    fig.setAttribute("data-od-id", "gallery-item-" + (i+1));
+    var b = document.createElement("button");
+    b.type = "button";
+    b.style.cssText = "display:block;width:100%;text-align:inherit;padding:0";
+    b.setAttribute("aria-label", "放大查看：" + it.cap);
+    b.innerHTML =
+      '<span class="ph"><img src="' + it.src + '" width="' + it.w + '" height="' + it.h + '" alt="' + it.alt + '" loading="lazy" decoding="async"></span>';
+    b.addEventListener("click", function(){ openLightbox(it); });
+    var cap = document.createElement("figcaption");
+    cap.innerHTML = "<b>" + it.cap + "</b><span>" + it.cr.replace(" / ", "<br>") + "</span>";
+    fig.appendChild(b);
+    fig.appendChild(cap);
+    frag.appendChild(fig);
+  });
+  grid.appendChild(frag);
+
+  /* ---------- 筛选 ---------- */
+  var filterBtns = Array.prototype.slice.call(document.querySelectorAll(".filters button"));
+  var initialCat = "all";
+  try {
+    var saved = localStorage.getItem("cjc.filter");
+    if (saved) initialCat = saved;
+  } catch(e){}
+  function applyFilter(cat){
+    document.querySelectorAll(".g-item").forEach(function(el){
+      var show = (cat === "all") || (el.getAttribute("data-cat") === cat);
+      el.classList.toggle("is-hidden", !show);
+    });
+    filterBtns.forEach(function(b){ b.setAttribute("aria-pressed", String(b.getAttribute("data-filter") === cat)); });
+    try { localStorage.setItem("cjc.filter", cat); } catch(e){}
+  }
+  filterBtns.forEach(function(b){
+    b.addEventListener("click", function(){ applyFilter(b.getAttribute("data-filter")); });
+  });
+  if (initialCat !== "all") applyFilter(initialCat);
+
+  /* ---------- 灯箱 ---------- */
+  var lb = document.getElementById("lightbox");
+  var lbImg = document.getElementById("lb-img");
+  var lbCap = document.getElementById("lb-cap");
+  var lbCr = document.getElementById("lb-credit");
+  var lastFocus = null;
+  function openLightbox(it){
+    lastFocus = document.activeElement;
+    lbImg.src = it.src;
+    lbImg.alt = it.alt;
+    lbImg.setAttribute("width", it.w);
+    lbImg.setAttribute("height", it.h);
+    lbCap.textContent = it.cap;
+    lbCr.textContent = it.cr;
+    lb.hidden = false;
+    requestAnimationFrame(function(){ lb.classList.add("is-open"); });
+    document.body.style.overflow = "hidden";
+    document.getElementById("lb-close").focus();
+  }
+  function closeLightbox(){
+    lb.classList.remove("is-open");
+    document.body.style.overflow = "";
+    window.setTimeout(function(){ lb.hidden = true; lbImg.src = ""; }, 320);
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  document.getElementById("lb-close").addEventListener("click", closeLightbox);
+  lb.addEventListener("click", function(e){ if (e.target === lb) closeLightbox(); });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape" && !lb.hidden) closeLightbox(); });
+
+  /* ---------- 滚动揭示 ---------- */
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll(".rv, .rv-clip"));
+  if ("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); }
+      });
+    }, {rootMargin:"0px 0px -12% 0px", threshold:0.12});
+    revealEls.forEach(function(el, i){
+      el.style.transitionDelay = (Math.min(i % 6, 5) * 70) + "ms";
+      io.observe(el);
+    });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add("in"); });
+  }
+
+  /* ---------- 视差 ---------- */
+  var parallaxEls = Array.prototype.slice.call(document.querySelectorAll("[data-parallax]"));
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (parallaxEls.length && !reduce){
+    var ticking = false;
+    function onScroll(){
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function(){
+        var vh = window.innerHeight;
+        parallaxEls.forEach(function(el){
+          var r = el.getBoundingClientRect();
+          if (r.bottom < -120 || r.top > vh + 120) return;
+          var center = r.top + r.height/2 - vh/2;
+          var amt = parseFloat(el.getAttribute("data-parallax")) || 0;
+          el.style.transform = "translate3d(0," + (center * amt * -1).toFixed(1) + "px,0)";
+        });
+        ticking = false;
+      });
+    }
+    window.addEventListener("scroll", onScroll, {passive:true});
+    onScroll();
+  }
+
+  /* ---------- 进度条 / 顶栏 / 当前章节 ---------- */
+  var progress = document.getElementById("progress");
+  var topbar = document.querySelector(".topbar");
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll(".nav a"));
+  var sections = navLinks.map(function(a){ return document.querySelector(a.getAttribute("href")); });
+  function frame(){
+    var doc = document.documentElement;
+    var max = doc.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+    progress.style.transform = "scaleX(" + p + ")";
+    topbar.classList.toggle("is-stuck", window.scrollY > 24);
+    var idx = -1;
+    sections.forEach(function(s, i){
+      if (s && s.getBoundingClientRect().top <= window.innerHeight * 0.35) idx = i;
+    });
+    navLinks.forEach(function(a, i){ a.setAttribute("aria-current", String(i === idx)); });
+    ticking2 = false;
+  }
+  var ticking2 = false;
+  window.addEventListener("scroll", function(){
+    if (!ticking2){ ticking2 = true; requestAnimationFrame(frame); }
+  }, {passive:true});
+  frame();
+})();
+</script>
+</body>
+</html>
